@@ -1,5 +1,8 @@
 
+export type Name = {
+    common: string,
+}
 export type Country = {
     flag:  string,
-    common: string,
+    name: Name
 }

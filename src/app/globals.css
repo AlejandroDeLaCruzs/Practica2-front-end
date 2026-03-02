@@ -26,3 +26,9 @@ body {
   align-items: center;
   justify-self: center;
 }
+.dataCointener {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}

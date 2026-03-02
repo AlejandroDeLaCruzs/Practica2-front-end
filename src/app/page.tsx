@@ -34,7 +34,7 @@ export const Home = () => {
         Buscar
       </button>
       <div className="countryCointer">
-        {country && country.map((e) => <CountryCard country={e} />)}
+        {country && country.map((e) => <CountryCard key={e.name} country={e} />)}
       </div>
     </div>
   );
