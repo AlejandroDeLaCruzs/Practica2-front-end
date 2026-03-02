@@ -2,7 +2,7 @@
 
 import { countriesByName } from "@/lib/api/country";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import "../../globals.css";
 
 export const CountryData = () => {
@@ -20,12 +20,23 @@ export const CountryData = () => {
   }, [name]);
 
   return !loading ? (
-    <div className="mainCointener">
-      <h1>Pais: {country.name.official}</h1>
-      <p>Capital: {country.capital}</p>
-      <p>Region: {country.region}</p>
-      <p>Poblacion: {country.population}</p>
-      {Object.entries(country.languages).map(([key, idiom] ) => <p>{idiom}</p>)}
+    <div className="main">
+      <div className="contiener">
+        <div className="dataCointener">
+          <h1>{country.name.official}</h1>
+          <p>Region: {country.region}</p>
+          <p>Capital: {country.capital}</p>
+          <p>Poblacion: {country.population}</p>
+          <p className="idiomas">
+            Idiomas: {Object.values(country.languages).slice(0, 4).join(", ")}
+          </p>
+          <p>
+            Currecny:{" "}
+            {Object.values(country.currencies).map((currency) => currency.name)}
+          </p>
+        </div>
+        <img src={country.flags.png} className="" />
+      </div>
     </div>
   ) : (
     <h1>Loading</h1>
