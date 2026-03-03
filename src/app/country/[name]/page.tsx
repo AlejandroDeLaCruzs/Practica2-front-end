@@ -1,10 +1,10 @@
 "use client";
-
 import { countriesByName } from "@/lib/api/country";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import "../../globals.css";
-import { Country } from "@/types/coutnry";
+import Link from "next/link";
+import { Country } from "@/types";
 
 export const CountryData = () => {
   const { name }: { name: string } = useParams();
@@ -47,11 +47,14 @@ export const CountryData = () => {
             </p>
           )}
         </div>
-        <img src={country?.flags.png} />
+        <div className="countryImage">
+          <img src={country?.flags.png} />
+          <Link href={`/`} className="backBoton">← Volver</Link>
+        </div>
       </div>
     </div>
   ) : (
-    <img src="/Loading_icon.gif" className="loading"/>
+    <img src="/Loading_icon.gif" className="loading" />
   );
 };
 

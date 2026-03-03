@@ -84,25 +84,29 @@ body {
   font-weight: 700;
   color: #1e293b; /* gris oscuro moderno */
   margin-bottom: 20px;
+  margin-top: 10px;
   text-align: center;
   letter-spacing: 1px;
 }
 
-.searchBox {
+.countryImage {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
+  flex-direction: column;
+  align-items: flex-end;  /* alinea todo a la derecha */
+  min-height: 310px;
 }
 
+.backBoton {
+  margin-top: auto;  
+}
 
 /* From Uiverse.io by Maximinodotpy */ 
 .inputGroup {
   font-family: 'Segoe UI', sans-serif;
   margin: 1em 0 1em 0;
-  max-width: 190px;
+  max-width: 250px;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .inputGroup input {
@@ -122,34 +126,10 @@ body {
   padding: 0.8em;
   margin-left: 0.5em;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
   color: rgb(100, 100, 100);
 }
 
-.inputGroup :is(input:focus, input:valid)~label {
-  transform: translateY(-50%) scale(.9);
-  margin: 0em;
-  margin-left: 1.3em;
-  padding: 0.4em;
-  background-color: #e8e8e8;
-}
-
-.inputGroup :is(input:focus, input:valid) {
-  border-color: rgb(150, 150, 200);
-}
-
-.searchBox button {
-  padding: 10px 18px;
-  border-radius: 8px;
-  border: none;
-  background-color: #3b82f6;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-  position: relative;
-}
-
-.searchBox button:hover {
-  background-color: #2563eb;
+.inputGroup :is(input:focus, input:valid) ~ label {
+  opacity: 0;
 }
