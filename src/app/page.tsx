@@ -21,7 +21,7 @@ export const Home = () => {
 
   const filtered = allCountries
     ? allCountries.filter((c) =>
-        c.name.common.toLowerCase().includes(search.toLowerCase())
+        c.name.common.toLowerCase().includes(search.toLowerCase()),
       )
     : null;
 
@@ -32,9 +32,9 @@ export const Home = () => {
         <input
           type="text"
           required
+          placeholder="Buscar país..."
           onChange={(e) => setSearch(e.target.value)}
         />
-        <label htmlFor="name">Name</label>
       </div>
 
       {loading ? (

@@ -49,7 +49,9 @@ export const CountryData = () => {
         </div>
         <div className="countryImage">
           <img src={country?.flags.png} />
-          <Link href={`/`} className="backBoton">← Volver</Link>
+          <Link href={`/`} className="backBoton">
+            ← Volver
+          </Link>
         </div>
       </div>
     </div>

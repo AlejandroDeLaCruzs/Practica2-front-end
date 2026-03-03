@@ -13,10 +13,8 @@ export const countries = async () => {
 export const countriesByName = async (name: string) => {
   try {
     const response = await api.get<Country[]>(`/name/${name}`);
-    console.log(response.data)
     return response;
   } catch (error) {
     console.log(error);
   }
 };
-

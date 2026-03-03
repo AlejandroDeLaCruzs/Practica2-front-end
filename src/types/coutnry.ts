@@ -1,4 +1,3 @@
-
 export type Country = {
   tld: string[];
   cca2: string;
