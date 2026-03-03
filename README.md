@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌍 Explorador de Países
 
-## Getting Started
+Aplicación web desarrollada con **Next.js** que consume la API pública [REST Countries](https://restcountries.com/) y permite explorar información detallada de todos los países del mundo.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologías utilizadas
+
+- [Next.js](https://nextjs.org/) — Framework de React con enrutado estático y dinámico
+- TypeScript
+- CSS clásico (globals + módulos)
+- REST Countries API
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+### 1. Clona el repositorio
+
+```bash
+git clone git@github.com:AlejandroDeLaCruzs/Practica2-front-end.git
+cd Practica2-front-end
+```
+
+### 2. Instala las dependencias
+
+```bash
+npm install
+```
+
+### 3. Inicia el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Abre el navegador
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Estructura del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/
+│   ├── page.tsx                  # Página principal — lista todos los países
+│   ├── globals.css               # Estilos globales
+│   └── country/
+│       └── [name]/
+│           └── page.tsx          # Página dinámica — detalle de cada país
+│
+├── components/
+│   └── CountryCard.tsx           # Componente reutilizable para cada tarjeta de país
+│
+├── lib/
+│   └── api/
+│       └── country.ts            # Funciones para consumir la REST Countries API
+│
+├── types/
+│   └── country.ts                # Tipos TypeScript para los datos de país
+│
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Páginas y funcionalidades
 
-## Deploy on Vercel
+### `/` — Página principal
+- Muestra todos los países obtenidos desde la API.
+- Cada país se renderiza con el componente `<CountryCard />`.
+- Incluye un **buscador en tiempo real** que filtra por nombre sin recargar la página.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### `/country/[name]` — Detalle del país
+- Ruta dinámica generada a partir del nombre del país.
+- Muestra: nombre oficial, bandera, capital, región, población e idiomas.
+- Incluye un botón para **volver a la página principal**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👥 Autores
+
+| Nombre | GitHub |
+|--------|--------|
+| Tu nombre | [@AlejandroDeLaCruzs]([(https://github.com/AlejandroDeLaCruzs)]) |
+
