@@ -1,26 +1,27 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./globals.css";
 import { Country } from "@/types/coutnry";
-import { countries, countriesByName } from "@/lib/api/country";
+import { countries } from "@/lib/api/country";
 import { CountryCard } from "@/components/CountryCard";
 
 export const Home = () => {
-  const [country, setCountry] = useState<Country[] | null>(null);
-  const [name, setName] = useState<string>("");
+  const [allCountries, setAllCountries] = useState<Country[] | null>(null);
+  const [search, setSearch] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     countries().then((res) => {
-      setCountry(res?.data);
+      setAllCountries(res?.data ?? null);
+      setLoading(false);
     });
   }, []);
 
-  const fetchBusqueda = async () => {
-    const res = name === "" ? await countries() : await countriesByName(name);
-
-    setCountry(res?.data);
-  };
+   const filtered = allCountries
+    ? allCountries.filter((c) =>
+        c.name.common.toLowerCase().includes(search.toLowerCase())
+      )
+    : null;
 
   return (
     <div className="mainCointener">
@@ -30,22 +31,16 @@ export const Home = () => {
           <input
             type="text"
             required
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
           />
           <label htmlFor="name">Name</label>
         </div>
-        <button
-          onClick={() => {
-            fetchBusqueda();
-          }}
-        >
-          Buscar
-        </button>
       </div>
-
       <div className="countryCointer">
-        {country &&
-          country.map((e) => <CountryCard key={e.ccn3} country={e} />)}
+        {filtered &&
+          filtered.map((e) => <CountryCard key={e.ccn3} country={e} />)}
       </div>
     </div>
   );
