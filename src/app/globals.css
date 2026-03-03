@@ -1,6 +1,7 @@
 html,
 body {
   height: 100%;
+  background-color: #f2f3f6;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
 
 .countryCointer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-items: center;
 }
@@ -33,7 +34,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f3f6;
 }
 
 .contiener {
@@ -45,10 +45,10 @@ body {
   border-radius: 15px;
   min-height: 350px;
   display: flex;
-  flex-direction: row; 
-  align-items: flex-start; 
-  font-family: 'Poppins', sans-serif;
-  gap: 70px; 
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+  gap: 70px;
 }
 
 .contiener img {
@@ -59,14 +59,97 @@ body {
   border: 2px solid black;
 }
 
-
 .dataCointener h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2rem;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
 .dataCointener p {
-  margin-bottom: 17px; 
-  font-family: 'Arial, Helvetica, sans-serif';
+  margin-bottom: 17px;
+  font-family: "Arial, Helvetica, sans-serif";
+}
+
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b; /* gris oscuro moderno */
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+
+/* From Uiverse.io by Maximinodotpy */ 
+.inputGroup {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 1em 0 1em 0;
+  max-width: 190px;
+  position: relative;
+}
+
+.inputGroup input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.inputGroup label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+.inputGroup :is(input:focus, input:valid)~label {
+  transform: translateY(-50%) scale(.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: #e8e8e8;
+}
+
+.inputGroup :is(input:focus, input:valid) {
+  border-color: rgb(150, 150, 200);
+}
+
+.searchBox button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+.searchBox button:hover {
+  background-color: #2563eb;
 }
