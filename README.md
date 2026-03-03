@@ -81,9 +81,9 @@ http://localhost:3000
 
 ---
 
-## 👥 Autores
+## 👥 Autor
 
 | Nombre | GitHub |
 |--------|--------|
-| Tu nombre | [@AlejandroDeLaCruzs]([(https://github.com/AlejandroDeLaCruzs)]) |
+| Alejandro de la Cruz | [@AlejandroDeLaCruzs](https://github.com/AlejandroDeLaCruzs) |
 
