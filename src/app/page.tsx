@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./globals.css";
-
 import { countries } from "@/lib/api/country";
 import { CountryCard } from "@/components/CountryCard";
 import { Country } from "@/types";
@@ -11,19 +10,22 @@ export const Home = () => {
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    countries()
-      .then((res) => {
-        setAllCountries(res?.data ?? null);
+  const fetchCountries = async (name: string) => {
+    setLoading(true);
+    await countries(name)
+      .then((e) => setAllCountries(e?.data))
+      .catch((e) => {
+       console.log(`Error al obtener los datos: ${e}`);
       })
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
-  const filtered = allCountries
-    ? allCountries.filter((c) =>
-        c.name.common.toLowerCase().includes(search.toLowerCase()),
-      )
-    : null;
+  useEffect(() => {
+    fetchCountries(search);
+  }, [search]);
+
 
   return (
     <div className="mainCointener">
@@ -37,12 +39,13 @@ export const Home = () => {
         />
       </div>
 
+
       {loading ? (
         <img src="/Loading_icon.gif" className="loading" />
       ) : (
         <div className="countryCointer">
-          {filtered &&
-            filtered.map((e) => <CountryCard key={e.ccn3} country={e} />)}
+          {allCountries &&
+            allCountries.map((e) => <CountryCard key={e.ccn3} country={e} />)}
         </div>
       )}
     </div>

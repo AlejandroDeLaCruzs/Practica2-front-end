@@ -1,9 +1,11 @@
 import { Country } from "@/types";
 import { api } from "./api";
 
-export const countries = async () => {
+export const countries = async (name: string) => {
   try {
-    const response = await api.get<Country[]>(`/all?fields=name,flags`);
+    const response = await api.get<Country[]>(
+      `${name ? `/name/${name}` : `/all`}` + "?fields=name,flags",
+    );
     return response;
   } catch (error) {
     console.log(error);
